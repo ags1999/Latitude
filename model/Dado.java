@@ -21,19 +21,4 @@ public class Dado {
   public int getDado() {
     return faceUp;
   }
-
-	public int colorido(int d1, int d2) {
-		if (d1 == d2){
-    	this.cor = rolaDado();
-			return cor;
-    }
-	}
-
 }
-
-
-
-/**
-Dado colorido e normal são quse que identicos, usar os numeros da dado como cor
-
-*/

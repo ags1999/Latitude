@@ -4,12 +4,12 @@ public class Carta{
   
   private String texto;
   
-  public carta(String textoCarta){
+  public void setCarta(String textoCarta){
     this.texto = textoCarta;
   }
 
   public String getTextoCarta(){
-    return textoCarta;
+    return this.texto;
   }
 
 }

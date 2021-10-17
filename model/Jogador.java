@@ -16,6 +16,10 @@ class Jogador{
     return qtdExploradores;
   }
 
+  public void setEXploradores(int num) {
+    this.qtdExploradores = num;
+  }
+
   public String getColor() {
     return cor;
   }
@@ -36,9 +40,3 @@ class Jogador{
     this.qtdPontos = numPontos;
   }
 }
-
-/**
-Removi o atributo nome pq cor ja serve como nome
-adiconei atribudo Qtdpeoes pq é consição de vitória e contagem de pontos
-
-*/
