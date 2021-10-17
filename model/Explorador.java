@@ -2,28 +2,60 @@ package model;
 
 class Explorador
 {
-  int latitude;
-  final int latIni;
-  int longitude;
-  final int longIni;
+  private int latitude;
+  private final int latIni;
+  private int longitude;
+  private int objetivo;
   Jogador dono;
-
-  protected Explorador()
+  
+  protected Explorador(int latIni, Jogador dono)
   {
-    
+    this.latIni = latIni;
+    this.latitude = latIni;
+    this.dono = dono;
   }
 
-  protected void movimento(int latitude, int longitude)
+  protected boolean movimento(int latitude, int longitude)
   {
-    this.latitude += latitude;
+    objetivo += latitude;
+    if(this.latIni == 0)  // inicio no lado esquerdo
+    {
+      this.latitude += latitude;
+    }
+    else // inicio no lado direito;
+    {
+      this.latitude -= latitude;
+    }
     this.longitude += longitude;
+    
+    if(this.longitude > 11) // ajuste na longitude
+    {
+      this.longitude -= 11;
+    }
+    else if (this.longitude < 11)
+    {
+      this.longitude += 11;
+    }
+    
+    if (objetivo >= 13) { //alcançou lado oposto
+      return true;
+    }
+    return false;
   }
   
-  protected void movimento(int latitude, int longitude, int longIni)
+  protected boolean movimento(int latitude, int longitude, int longIni) //movimento inicial
   {
     this.longitude = longIni;
-    this.latitude += latitude;
-    this.longitude += longitude;
+    return this.movimento(latitude, longitude);
   }
 
+  protected int getLatitude()
+  {
+    return this.latitude;
+  }
+
+  protected int getLongitude()
+  {
+    return this.longitude;
+  }
 }

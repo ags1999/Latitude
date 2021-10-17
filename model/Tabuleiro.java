@@ -1,6 +1,6 @@
 package model;
 
-class tabuleiro
+class Tabuleiro
 {
   
    

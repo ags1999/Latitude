@@ -1,8 +1,29 @@
- package model;
+package model;
 
-class carta
-{
-  String textoCarta;
+public class Carta{
+  
+  private String texto;
+  
+  public carta(String textoCarta){
+    this.texto = textoCarta;
+  }
+
+  public String getTextoCarta(){
+    return textoCarta;
+  }
+
+}
+
+
+
+/**
+Antes de mexer
+package model;
+
+public class carta{
+  
+  private String texto;
+  
   final String[] valores =
   {
     "Carta 1",
@@ -35,3 +56,4 @@ class carta
   }
 
 }
+*/

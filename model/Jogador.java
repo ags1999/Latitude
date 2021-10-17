@@ -1,20 +1,19 @@
 package model;
 
-class Jogador
-{
-  private String nome;
-  private String cor;
-  private int qtdPontos, numJogador;
+class Jogador{
 
-  public Jogador(String nomeJog, String corJog, int numJog) {
-    this.nome = nomeJog;
+  private String cor;
+  private int qtdPontos, numJogador, qtdExploradores;
+
+  public Jogador( String corJog, int numJog, int numExploradores) {
+    this.qtdExploradores = numExploradores;
     this.cor = corJog;
     this.numJogador = numJog;
     this.qtdPontos = 0;
   }
 
-  public String getName() {
-    return nome;
+  public int getExploradores() {
+    return qtdExploradores;
   }
 
   public String getColor() {
@@ -37,3 +36,9 @@ class Jogador
     this.qtdPontos = numPontos;
   }
 }
+
+/**
+Removi o atributo nome pq cor ja serve como nome
+adiconei atribudo Qtdpeoes pq é consição de vitória e contagem de pontos
+
+*/
