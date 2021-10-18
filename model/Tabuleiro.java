@@ -1,36 +1,67 @@
 package model;
+import java.lang.Math;
 
 class Tabuleiro
 {
-  private final int linhas = 24, colunas = 6;
-  private int[][] matrizTab = new int[linhas][colunas];
+  private int[][] matrizTab = new int[14][12] ; //[longitude][latitude]
+  /*
+   * Casa normal tem valor 0
+   * Casa fechada tem valor -1
+   * Casa com meta tem valor 1
+   */
+  
+  Tabuleiro() 
+  {
+	  int i;
+	  for(i = 0; i < 14; i++)// inicializa casas
+	  {
+	   for(int j = 0; j < 12; j++)
+	   {
+		   matrizTab[i][j] = 0;
+	   }
+	  }
 
-  public void novoTabuleiro() {
-    int i, j;
-    for(i = 0; i <= linhas; i++) {
-      for (j = 0; j <= colunas; j++){
-        matrizTab[i][j]=0;
-      }
-    }
-    matrizTab[1][3] = -1;
-    matrizTab[3][4] = -1;
-    matrizTab[4][5] = -1;
-    matrizTab[7][3] = -1;
-    matrizTab[9][4] = -1;
-    matrizTab[10][5] = -1;
-    matrizTab[13][5] = -1;
-    matrizTab[14][4] = -1;
-    matrizTab[16][3] = -1;
-    matrizTab[19][5] = -1;
-    matrizTab[20][4] = -1;
-    matrizTab[22][3] = -1;
+   i = 0;
+   while(i < 12) //atribui metas
+   {
+	   int latitude = gerador(1,12);
+	   int longitude = gerador (0,11);
+	   if(matrizTab[latitude][longitude] == 0)
+	   {
+		   matrizTab[latitude][longitude] = 1;
+		   i++;
+	   }
+   }
+   
+   for(i = 0; i < 14; i++)// imprime casas
+   {
+	   for(int j = 0; j < 12; j++)
+	   {
+
+		   //System.out.print(i + "," + j + " ");
+		   System.out.print(matrizTab[i][j] + " ");
+	   }
+	   System.out.println();
+   }
+   
+  }
+  
+  
+  private static int gerador(int min, int max)
+  {
+	  int range = (max-min);
+	  return (int)(Math.random()*range) + min;
+  }
+  
+  void modificaTabuleiro(int value, int latitude, int longitude)
+  {
+    matrizTab[latitude][longitude] = value;
   }
 
-  public void modificaTabuleiro(int value, int linha, int coluna){
-    matrizTab[linha][coluna] = value;
-  }
-
-  public int getCasa(int linha, int coluna){
-    return matrizTab[linha][coluna];
+  
+  int getCasa(int latitude, int longitude)
+  {
+    return matrizTab[latitude][longitude];
   }
 }
+

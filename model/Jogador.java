@@ -3,40 +3,44 @@ package model;
 class Jogador{
 
   private String cor;
-  private int qtdPontos, numJogador, qtdExploradores;
+  private int qtdPontos = 0, numJogador, qtdExploradores = 6;
+  public Explorador[] listaExploradores = new Explorador[6]; 
 
-  public Jogador( String corJog, int numJog, int numExploradores) {
-    this.qtdExploradores = numExploradores;
+  public Jogador( String corJog, int numJog, int ladoInicial) {
     this.cor = corJog;
     this.numJogador = numJog;
-    this.qtdPontos = 0;
+    for(int i = 0; i < 6; i++)
+    {
+      listaExploradores[i] = new Explorador(ladoInicial, this);
+    }
+
   }
 
-  public int getExploradores() {
+  int getExploradores() {
     return qtdExploradores;
   }
 
-  public void setEXploradores(int num) {
+  void setEXploradores(int num) {
     this.qtdExploradores = num;
   }
 
-  public String getColor() {
+  String getColor() {
     return cor;
   }
 
-  public int getPontos() {
+  int getPontos() {
     return qtdPontos;
   }
 
-  public int getNumJogador() {
+  int getNumJogador() {
     return numJogador;
   }
 
-  public void setNumJogador(int num) {
+  void setNumJogador(int num) {
     this.numJogador = num;
   }
 
-  public void setPontos(int numPontos) {
+  void setPontos(int numPontos) {
     this.qtdPontos = numPontos;
   }
 }

@@ -8,14 +8,14 @@ class Explorador
   private int objetivo;
   Jogador dono;
   
-  protected Explorador(int latIni, Jogador dono)
+  Explorador(int latIni, Jogador dono)
   {
     this.latIni = latIni;
     this.latitude = latIni;
     this.dono = dono;
   }
 
-  protected boolean movimento(int latitude, int longitude)
+  boolean movimento(int latitude, int longitude)
   {
     objetivo += latitude;
     if(this.latIni == 0)  // inicio no lado esquerdo
@@ -43,7 +43,8 @@ class Explorador
     return false;
   }
   
-  protected boolean movimento(int latitude, int longitude, int longIni) //movimento inicial
+  //movimento inicial
+  protected boolean movimento(int latitude, int longitude, int longIni)
   {
     this.longitude = longIni;
     return this.movimento(latitude, longitude);
