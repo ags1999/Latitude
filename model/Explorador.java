@@ -30,11 +30,11 @@ class Explorador
     
     if(this.longitude > 11) // ajuste na longitude
     {
-      this.longitude -= 11;
+      this.longitude -= 12;
     }
-    else if (this.longitude < 11)
+    else if (this.longitude < 0)
     {
-      this.longitude += 11;
+      this.longitude += 12;
     }
     
     if (objetivo >= 13) { //alcançou lado oposto

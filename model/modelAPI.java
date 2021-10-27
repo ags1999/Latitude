@@ -27,10 +27,12 @@ public class modelAPI
       P3 = new Jogador("vermelho", 3, 13);
       P4 = new Jogador("amarelo", 4, 13 );
     }
+    D1 = new Dado();
+    D2 = new Dado();
+    D3 = new Dado();
+    
   }
 
-  D1 = new Dado();
-  D2 = new Dado();
-  D3 = new Dado();
+  
 
 }

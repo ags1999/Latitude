@@ -3,7 +3,7 @@ import java.lang.Math;
 
 class Tabuleiro
 {
-  private int[][] matrizTab = new int[14][12] ; //[longitude][latitude]
+  private int[][] matrizTab = new int[14][12] ; //[latitude][longitude]
   /*
    * Casa normal tem valor 0
    * Casa fechada tem valor -1
