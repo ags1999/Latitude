@@ -1,17 +1,17 @@
 package view;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 @SuppressWarnings("serial")
-public class JanelaTabuleiro extends JFrame
+public class Janela extends JFrame
 {
 	public final int largura = 1200;
 	public final int altura = 700;
 	
-	public JanelaTabuleiro()
+	public Janela()
 	{
-		Toolkit tk=Toolkit.getDefaultToolkit();
+		Toolkit tk = Toolkit.getDefaultToolkit();
 		Dimension screenSize=tk.getScreenSize();
 		int sl = screenSize.width;
 		int sa = screenSize.height;
@@ -20,6 +20,8 @@ public class JanelaTabuleiro extends JFrame
 		
 		setBounds(x,y, largura,altura);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle("LATITUDE 90");
+		setVisible(true);
+		getContentPane().add(new PainelInicial());
 	}
-	
 }
