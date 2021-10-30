@@ -12,9 +12,8 @@ public class PainelInicial extends JPanel
 	
 	private static PainelInicial PN = null;
 	private static Image bkg;
-	
-	private PainelInicial(){}
-	
+	private static Font F1 = new Font("Times New Roman", Font.BOLD, 40);
+	private PainelInicial()
 	{
 		try 
 		{
@@ -27,7 +26,20 @@ public class PainelInicial extends JPanel
 			System.exit(1);
 		}
 	}
-	
+	/*
+	{
+		try 
+		{
+			bkg = ImageIO.read(new File("Imagens/Latitude90-Tabuleiro.png"));
+			bkg = bkg.getScaledInstance(1200, 700, Image.SCALE_DEFAULT);
+		}
+		catch(IOException e) 
+		{
+			System.out.println(e.getMessage());
+			System.exit(1);
+		}
+	}
+	*/
 	public static PainelInicial getPainelInicial()
 	{
 		if(PN == null)
@@ -40,10 +52,10 @@ public class PainelInicial extends JPanel
 	{
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
+		
+		g2d.drawImage(bkg, 0, 0, null);
+		
 		g2d.setPaint(Color.WHITE);
-		
-		
-		g.drawImage(bkg, 0, 0, null);
 		
 		Rectangle2D RetNovoJogo = new Rectangle2D.Double(400, 200, 400, 100);
 		g2d.fill(RetNovoJogo);
@@ -52,6 +64,10 @@ public class PainelInicial extends JPanel
 		g2d.fill(RetCont);
 		
 		
+		g2d.setFont(F1);
+		g2d.setColor(Color.BLACK);
+		g2d.drawString("Novo Jogo", 500, 260);
+		g2d.drawString("Continuar", 500, 460);
 	}
 	
 	
