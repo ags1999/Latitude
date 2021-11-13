@@ -15,14 +15,14 @@ public class PainelTabuleiro extends JPanel
 	private static PainelTabuleiro PN = null;
 	private static Image bkg;
 	private final int larguraImagem = 720;
-	private final int alturaImagem = 724;
+	private final int alturaImagem = 680;
 	
 	private PainelTabuleiro()
 	{
 		try 
 		{
 			bkg = ImageIO.read(new File("Imagens/Latitude90-Tabuleiro.png"));
-			//bkg = bkg.getScaledInstance(1200, 700, Image.SCALE_DEFAULT);
+			bkg = bkg.getScaledInstance(larguraImagem, alturaImagem, Image.SCALE_DEFAULT);
 		}
 		catch(IOException e) 
 		{

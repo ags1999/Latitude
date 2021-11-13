@@ -1,12 +1,14 @@
 package model;
 
+import java.awt.Color;
+
 class Jogador{
 
-  private String cor;
+  private Color cor;
   private int qtdPontos = 0, numJogador, qtdExploradores = 6;
   public Explorador[] listaExploradores = new Explorador[6]; 
 
-  public Jogador( String corJog, int numJog, int ladoInicial) {
+  public Jogador( Color corJog, int numJog, int ladoInicial) {
     this.cor = corJog;
     this.numJogador = numJog;
     for(int i = 0; i < 6; i++)
@@ -24,7 +26,7 @@ class Jogador{
     this.qtdExploradores = num;
   }
 
-  String getColor() {
+  Color getColor() {
     return cor;
   }
 

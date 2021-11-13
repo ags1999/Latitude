@@ -3,6 +3,7 @@ package model;
 public class Carta{
   
   private String texto;
+  private int movimento;
   
   public void setCarta(String textoCarta){
     this.texto = textoCarta;
@@ -10,6 +11,11 @@ public class Carta{
 
   public String getTextoCarta(){
     return this.texto;
+  }
+  
+  public int getMovimento()
+  {
+	  return this.movimento;
   }
 
 }
