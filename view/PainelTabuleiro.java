@@ -2,7 +2,7 @@ package view;
 
 
 import java.awt.*;
-
+import java.awt.geom.*;
 import java.io.*;
 
 import javax.imageio.ImageIO;
@@ -14,13 +14,15 @@ public class PainelTabuleiro extends JPanel
 {
 	private static PainelTabuleiro PN = null;
 	private static Image bkg;
+	private final int larguraImagem = 720;
+	private final int alturaImagem = 724;
 	
 	private PainelTabuleiro()
 	{
 		try 
 		{
 			bkg = ImageIO.read(new File("Imagens/Latitude90-Tabuleiro.png"));
-			bkg = bkg.getScaledInstance(1200, 700, Image.SCALE_DEFAULT);
+			//bkg = bkg.getScaledInstance(1200, 700, Image.SCALE_DEFAULT);
 		}
 		catch(IOException e) 
 		{
@@ -36,6 +38,10 @@ public class PainelTabuleiro extends JPanel
 		
 		g2d.drawImage(bkg, 0, 0, null);
 		
+		g2d.setPaint(Color.GREEN);
+		Ellipse2D centro1 = new Ellipse2D.Double();
+		centro1.setFrameFromCenter(205,365,205+8,365+8);
+		g2d.fill(centro1);
 	}
 	
 	public static PainelTabuleiro getPainelTabuleiro()
@@ -43,6 +49,22 @@ public class PainelTabuleiro extends JPanel
 		if(PN == null)
 			PN = new PainelTabuleiro();
 		return PN;
+	}
+	
+	int[] getCoordenadas(int x, int y)
+	{
+		 int[] coordenadas;
+		 int latitude = 0;
+		 int longitude = 0;
+		 
+		 if(x < larguraImagem/2)
+		 {
+			 
+		 }
+		 
+		 
+		 coordenadas = new int[]{latitude, longitude};
+		 return coordenadas;
 	}
 	
 }

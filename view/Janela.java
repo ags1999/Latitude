@@ -22,6 +22,6 @@ public class Janela extends JFrame
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle("LATITUDE 90");
 		setVisible(true);
-		getContentPane().add(PainelInicial.getPainelInicial());
+		getContentPane().add(PainelTabuleiro.getPainelTabuleiro());
 	}
 }
