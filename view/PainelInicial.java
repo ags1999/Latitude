@@ -12,7 +12,7 @@ public class PainelInicial extends JPanel
 	
 	private static PainelInicial PN = null;
 	private static Image bkg;
-	private static Font F1 = new Font("Times New Roman", Font.BOLD, 40);
+	private static Font F1 = new Font("Arial", Font.BOLD, 40);
 	private PainelInicial()
 	{
 		try 
@@ -26,20 +26,7 @@ public class PainelInicial extends JPanel
 			System.exit(1);
 		}
 	}
-	/*
-	{
-		try 
-		{
-			bkg = ImageIO.read(new File("Imagens/Latitude90-Tabuleiro.png"));
-			bkg = bkg.getScaledInstance(1200, 700, Image.SCALE_DEFAULT);
-		}
-		catch(IOException e) 
-		{
-			System.out.println(e.getMessage());
-			System.exit(1);
-		}
-	}
-	*/
+
 	public static PainelInicial getPainelInicial()
 	{
 		if(PN == null)

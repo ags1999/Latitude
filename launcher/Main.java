@@ -12,5 +12,6 @@ class Main
 		Janela NJ = new Janela();
 		NJ.setResizable(false);
 		NJ.setVisible(true);
+		System.out.print("Ok3\n");
 	}
 }
