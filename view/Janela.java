@@ -39,7 +39,7 @@ public class Janela extends JFrame implements MouseListener
 		
 		cards.add(PainelInicial.getPainelInicial(), "P1" );
 		cards.add(PainelTabuleiro.getPainelTabuleiro(), "P2");
-		crd.show(cards, "P1");
+		//crd.show(cards, "P1");
 		System.out.print("Ok2\n");
 		this.add(cards);
 	}

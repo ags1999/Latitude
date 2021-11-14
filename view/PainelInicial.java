@@ -17,7 +17,7 @@ public class PainelInicial extends JPanel
 	{
 		try 
 		{
-			bkg = ImageIO.read(new File("Imagens/Latitude90-Tabuleiro.png"));
+			bkg = ImageIO.read(getClass().getResource("/Imagens/Latitude90-Tabuleiro.png"));
 			bkg = bkg.getScaledInstance(1200, 700, Image.SCALE_DEFAULT);
 		}
 		catch(IOException e) 
