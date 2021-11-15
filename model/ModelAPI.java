@@ -10,6 +10,8 @@ public class ModelAPI
 	final Jogador P3;
 	final Jogador P4;
 	final Dado D1;
+	final Dado D2;
+	final Dado DC;
 
 	private static ModelAPI Jogo;
   
@@ -29,7 +31,10 @@ public class ModelAPI
 			P3 = new Jogador(Color.YELLOW, 3, 13);
 			P4 = new Jogador(Color.BLUE, 4, 13 );
 		}
+		
 		D1 = new Dado();
+		D2 = new Dado();
+		DC = new Dado();
 
     
 	}
@@ -38,24 +43,22 @@ public class ModelAPI
 	{
 		return Jogo;
 	}
-
+	
 	public void novoJogo(int numJogadores, int modo)
 	{
 		Jogo = new ModelAPI(numJogadores, modo);
 	}
 	
-	public Object rolaDado(boolean dadoColorido)
+	public Object rolaDado(boolean dadoColorido, Dado dado)
 	{
-		D1.rolaDado();
+		dado.rolaDado();
 		if(dadoColorido) 
 		{
-			return D1.getCor();
+			return dado.getCor();
 		}
 		else
 		{
-			return D1.getDado();
-		}
-		
-	}
-	
+			return dado.getDado();
+		}		
+	}	
 }
