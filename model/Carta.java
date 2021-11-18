@@ -1,22 +1,25 @@
 package model;
 
-public class Carta{
+class Carta
+{
   
-  private String texto;
-  private int movimento;
+	private String texto;
+	private int movimento;
   
-  public void setCarta(String textoCarta){
-    this.texto = textoCarta;
-  }
+	public void setCarta(String textoCarta)
+	{
+		this.texto = textoCarta;
+	}
 
-  public String getTextoCarta(){
-    return this.texto;
-  }
+	public String getTextoCarta()
+	{
+		return this.texto;
+	}
   
-  public int getMovimento()
-  {
-	  return this.movimento;
-  }
+	public int getMovimento()
+	{
+		return this.movimento;
+	}
 
 }
 

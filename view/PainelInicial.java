@@ -1,10 +1,13 @@
 package view;
 import java.awt.*;
 import java.awt.geom.*;
+import java.awt.event.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.*;
+
+import java.beans.PropertyChangeListener;
 
 @SuppressWarnings("serial")
 public class PainelInicial extends JPanel
@@ -13,6 +16,10 @@ public class PainelInicial extends JPanel
 	private static PainelInicial PN = null;
 	private static Image bkg;
 	private static Font F1 = new Font("Arial", Font.BOLD, 40);
+	static Rectangle2D BotaoSuperior = new Rectangle2D.Double(400, 200, 400, 100);
+	static Rectangle2D BotaoInferior = new Rectangle2D.Double(400, 400, 400, 100);
+	static Rectangle2D BotaoVoltar = new Rectangle2D.Double(000, 600, 150, 100);
+	
 	private PainelInicial()
 	{
 		try 
@@ -44,18 +51,113 @@ public class PainelInicial extends JPanel
 		
 		g2d.setPaint(Color.WHITE);
 		
-		Rectangle2D RetNovoJogo = new Rectangle2D.Double(400, 200, 400, 100);
-		g2d.fill(RetNovoJogo);
+		//Rectangle2D RetNovoJogo = new Rectangle2D.Double(400, 200, 400, 100);
+		g2d.fill(BotaoSuperior);
 		
-		Rectangle2D RetCont = new Rectangle2D.Double(400, 400, 400, 100);
-		g2d.fill(RetCont);
+		//Rectangle2D RetCont = new Rectangle2D.Double(400, 400, 400, 100);
+		g2d.fill(BotaoInferior);
 		
 		
-		g2d.setFont(F1);
-		g2d.setColor(Color.BLACK);
-		g2d.drawString("Novo Jogo", 500, 260);
-		g2d.drawString("Continuar", 500, 460);
+		if(ViewAPI.PaginaAtual > 1)
+		{
+			g2d.fill(BotaoVoltar);
+			
+		}
+		
+		setBotoes(g2d, ViewAPI.PaginaAtual);
+		
 	}
 	
+	private void setBotoes(Graphics2D g, int status)
+	{
+		g.setFont(F1);
+		g.setColor(Color.BLACK);
+		switch(status) 
+		{
+			case 1:
+	
+				g.drawString("Novo Jogo", 500, 260);
+				g.drawString("Carregar Jogo", 460, 460);
+				break;
+			
+			case 2:
+				g.drawString("2 Jogadores", 480, 260);
+				g.drawString("4 Jogadores", 480, 460);
+				g.drawString("Voltar", 20, 650);
+				break;
+			
+			case 3:
+				g.drawString("Competitivo", 480, 260);
+				g.drawString("Cooperativo", 480, 460);
+				g.drawString("Voltar", 20, 650);
+				break;
+				
+			default:
+				System.out.print("Erro setbotoes");
+				System.exit(1);
+			
+		}
+	}
+
+	static void selecionaJogo(int x, int y)
+	{
+		if(BotaoSuperior.contains(x, y))
+		{
+			ViewAPI.PaginaAtual = 2;
+			//System.out.print("hmmmPN\n");
+		}
+		
+		else
+		{
+			return;
+		}
+		PN.repaint();
+	}
+	
+	static void selecionaNumJogadores(int x, int y)
+	{
+		if(BotaoSuperior.contains(x, y))
+		{
+			ViewAPI.PaginaAtual = 3;
+			//System.out.print("hmmmPN\n");
+		}
+		else if(BotaoInferior.contains(x, y)) 
+		{
+			ViewAPI.PaginaAtual = 3;
+		}
+		else if(BotaoVoltar.contains(x, y)) 
+		{
+			ViewAPI.PaginaAtual--;
+		}
+		else
+		{
+			return;
+		}
+		PN.repaint();
+	}
+	
+	static void selecionaModo(int x, int y)
+	{
+		if(BotaoSuperior.contains(x, y))
+		{
+			//ViewAPI.PaginaAtual = 4;
+			//System.out.print("hmmmPN\n");
+		}
+		if(BotaoInferior.contains(x, y))
+		{
+			//ViewAPI.PaginaAtual = 4;
+			//System.out.print("hmmmPN\n");
+		}
+		else if(BotaoVoltar.contains(x, y)) 
+		{
+			ViewAPI.PaginaAtual--;
+			PN.repaint();
+		}
+		else
+		{
+			return;
+		}
+		
+	}
 	
 }

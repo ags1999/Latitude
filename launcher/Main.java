@@ -1,17 +1,24 @@
 package launcher;
 
 
-//import model.*;
+import model.ModelAPI;
 import view.*;
+import controller.Controller;
 
 class Main
 {  
 	
+	static ModelAPI model;
+	static ViewAPI view = ViewAPI.getViewAPI();
+	static Controller ctrl = Controller.getController();
 	public static void main(String[] args) 
 	{
-		Janela NJ = new Janela();
-		NJ.setResizable(false);
-		NJ.setVisible(true);
-		System.out.print("Ok3\n");
+		
+
+
+		//Janela NJ = new ViewAPI().J1;
+		//NJ.setResizable(false);
+		//NJ.setVisible(true);
+		//System.out.print("Ok3\n");
 	}
 }

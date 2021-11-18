@@ -6,9 +6,10 @@ class Jogador{
 
   private Color cor;
   private int qtdPontos = 0, numJogador, qtdExploradores = 6;
-  public Explorador[] listaExploradores = new Explorador[6]; 
+  private Explorador[] listaExploradores = new Explorador[6]; 
 
-  public Jogador( Color corJog, int numJog, int ladoInicial) {
+  Jogador( Color corJog, int numJog, int ladoInicial) 
+  {
     this.cor = corJog;
     this.numJogador = numJog;
     for(int i = 0; i < 6; i++)

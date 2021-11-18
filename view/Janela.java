@@ -6,18 +6,18 @@ import java.awt.*;
 import java.awt.event.*;
 
 @SuppressWarnings("serial")
-public class Janela extends JFrame implements MouseListener
+class Janela extends JFrame implements MouseListener
 {
+	static Janela J1;
 	public final int largura = 1200;
 	public final int altura = 700;
-	CardLayout crd;
-	
+	CardLayout crd = new CardLayout();
 	JPanel cards = new JPanel();
 	
 	
-	public Janela()
+	private Janela()
 	{
-		addMouseListener(this);
+		
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		Dimension screenSize=tk.getScreenSize();
 		int sl = screenSize.width;
@@ -28,56 +28,63 @@ public class Janela extends JFrame implements MouseListener
 		setBounds(x,y, largura,altura);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle("LATITUDE 90");
-		//setVisible(true);
-		//getContentPane().add(PainelTabuleiro.getPainelTabuleiro());
-		//getContentPane().add(PainelInicial.getPainelInicial());
 		
-		//Card Layout
-		crd = new CardLayout();
 		cards.setLayout(crd);
 		
 		
 		cards.add(PainelInicial.getPainelInicial(), "P1" );
 		cards.add(PainelTabuleiro.getPainelTabuleiro(), "P2");
-		//crd.show(cards, "P1");
-		System.out.print("Ok2\n");
+
 		this.add(cards);
+		addMouseListener(this);
 	}
 
+	static Janela getJanela()
+	{
+		if(J1 == null)
+		{
+			J1 = new Janela();
+		}
+		return J1;
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		crd.next(cards);
-		System.out.print("Ok\n");
-	}
-
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		int x = arg0.getX();
+		int y = arg0.getY();
+		//System.out.print("hmmmJN\n");
+		switch(ViewAPI.PaginaAtual)
+		{
+			case 1:
+				PainelInicial.selecionaJogo(x, y);
+				return;
+			case 2:
+				PainelInicial.selecionaNumJogadores(x, y);
+				return;
+			case 3:
+				PainelInicial.selecionaModo(x, y);
+				return;
+			case 4:
+				return;
+			default:
+				return;
+		}
 		
 	}
 
+	@Override
+	public void mouseEntered(MouseEvent arg0) {}
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void mouseExited(MouseEvent arg0) {}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void mousePressed(MouseEvent arg0) {}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseReleased(MouseEvent arg0) {}
+	
+	
 	
 	
 	

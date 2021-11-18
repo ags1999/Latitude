@@ -22,12 +22,12 @@ class Dado
 		faceUp = r.nextInt(5)+1;
 	}
 
-	public int getDado() 
+	int getDado() 
 	{
 		return faceUp;
 	}
   
-	public Color getCor()
+	Color getCor()
 	{
 		switch(this.faceUp)
 		{
@@ -43,11 +43,9 @@ class Dado
 			case 4:
 				return Color.GREEN;
 	  		
-			case 5:
-				return Color.RED; // Escolher um explorador aliado
 	  		
 			default:
-				return Color.WHITE; // Escolher um explorador adversário
+				return Color.WHITE; // Nada Acontece
 				
 	  }
 		

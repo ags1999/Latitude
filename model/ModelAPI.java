@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Color;
+import java.beans.PropertyChangeSupport;
 
 public class ModelAPI
 {
@@ -9,7 +10,7 @@ public class ModelAPI
 	final Jogador P2;
 	final Jogador P3;
 	final Jogador P4;
-	final Dado D1;
+	public final Dado D1;
 	final Dado D2;
 	final Dado DC;
 
@@ -39,12 +40,12 @@ public class ModelAPI
     
 	}
 	
-	public ModelAPI getModelAPI()
+	public static ModelAPI getModelAPI()
 	{
 		return Jogo;
 	}
 	
-	public void novoJogo(int numJogadores, int modo)
+	public static void novoJogo(int numJogadores, int modo)
 	{
 		Jogo = new ModelAPI(numJogadores, modo);
 	}
