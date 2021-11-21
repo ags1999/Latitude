@@ -1,5 +1,8 @@
 package view;
 
+import model.ModelAPI;
+import controller.Controller;
+
 import java.awt.*;
 
 import javax.swing.JPanel;
@@ -37,6 +40,7 @@ public class ViewAPI
 	{
 		return PaginaAtual;
 	}
+	
 	
 	
 }

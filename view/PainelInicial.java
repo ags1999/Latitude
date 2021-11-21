@@ -7,10 +7,10 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.*;
 
-import java.beans.PropertyChangeListener;
+//import java.beans.PropertyChangeListener;
 
 @SuppressWarnings("serial")
-public class PainelInicial extends JPanel
+public class PainelInicial extends JPanel implements MouseListener
 {
 	
 	private static PainelInicial PN = null;
@@ -22,6 +22,7 @@ public class PainelInicial extends JPanel
 	
 	private PainelInicial()
 	{
+		addMouseListener(this);
 		try 
 		{
 			bkg = ImageIO.read(getClass().getResource("/Imagens/Latitude90-Tabuleiro.png"));
@@ -157,6 +158,56 @@ public class PainelInicial extends JPanel
 		{
 			return;
 		}
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) 
+	{
+		int x = arg0.getX();
+		int y = arg0.getY();
+		//System.out.print("hmmmJN\n");
+		switch(ViewAPI.PaginaAtual)
+		{
+			case 1:
+				PainelInicial.selecionaJogo(x, y);
+				return;
+			case 2:
+				PainelInicial.selecionaNumJogadores(x, y);
+				return;
+			case 3:
+				PainelInicial.selecionaModo(x, y);
+				return;
+			case 4:
+				return;
+			default:
+				return;
+		}
+		
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
 		
 	}
 	

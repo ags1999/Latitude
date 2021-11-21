@@ -3,17 +3,20 @@ package view;
 import javax.swing.*;
 import javax.swing.JPanel;
 import java.awt.*;
-import java.awt.event.*;
+//import java.awt.event.*;
 
 @SuppressWarnings("serial")
-class Janela extends JFrame implements MouseListener
+class Janela extends JFrame
 {
 	static Janela J1;
 	public final int largura = 1200;
 	public final int altura = 700;
 	CardLayout crd = new CardLayout();
 	JPanel cards = new JPanel();
-	
+	static JMenuBar mb = new JMenuBar();
+	static JMenu MenuOpcoes = new JMenu("Opções");
+	static JMenuItem salvar = new JMenuItem("Salvar"); 
+	static JMenuItem debug = new JMenuItem("Debug"); 
 	
 	private Janela()
 	{
@@ -32,13 +35,24 @@ class Janela extends JFrame implements MouseListener
 		cards.setLayout(crd);
 		
 		
-		cards.add(PainelInicial.getPainelInicial(), "P1" );
+		//cards.add(PainelInicial.getPainelInicial(), "P1" );
 		cards.add(PainelTabuleiro.getPainelTabuleiro(), "P2");
-
+		
+		MenuOpcoes.add(salvar);
+		MenuOpcoes.add(debug);
+		mb.add(MenuOpcoes);
+		this.setJMenuBar(mb);
+		setMenuVisibility(true);
+		
 		this.add(cards);
-		addMouseListener(this);
-	}
 
+	}
+	
+	static void setMenuVisibility(boolean status)
+	{
+		mb.setVisible(status);
+	}
+	
 	static Janela getJanela()
 	{
 		if(J1 == null)
@@ -48,42 +62,7 @@ class Janela extends JFrame implements MouseListener
 		return J1;
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		int x = arg0.getX();
-		int y = arg0.getY();
-		//System.out.print("hmmmJN\n");
-		switch(ViewAPI.PaginaAtual)
-		{
-			case 1:
-				PainelInicial.selecionaJogo(x, y);
-				return;
-			case 2:
-				PainelInicial.selecionaNumJogadores(x, y);
-				return;
-			case 3:
-				PainelInicial.selecionaModo(x, y);
-				return;
-			case 4:
-				return;
-			default:
-				return;
-		}
-		
-	}
 
-	@Override
-	public void mouseEntered(MouseEvent arg0) {}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {}
-	
 	
 	
 	
