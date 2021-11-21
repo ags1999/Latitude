@@ -4,6 +4,7 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
+import java.awt.geom.Rectangle2D.Double;
 import java.io.*;
 
 import javax.imageio.ImageIO;
@@ -31,6 +32,10 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	private static Image dado4;
 	private static Image dado5;
 	private static Image dado6;
+	
+	private static Rectangle2D RetDados = new Rectangle2D.Double(850, 100, 200, 50);
+	
+	private static Font F1 = new Font("Arial", Font.BOLD, 30);
 	
 	private PainelTabuleiro()
 	{
@@ -108,6 +113,13 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 		Graphics2D g2d = (Graphics2D) g;
 		
 		g2d.drawImage(bkg, 0, 0, null);
+		
+		g2d.setColor(Color.WHITE);
+		g2d.fill(RetDados);
+		
+		g2d.setColor(Color.BLACK);
+		g2d.setFont(F1);
+		g2d.drawString("Rolar Dados", 860, 140);
 		
 		g2d.setPaint(Color.GREEN);
 		Ellipse2D centro1 = new Ellipse2D.Double();
