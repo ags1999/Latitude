@@ -5,6 +5,6 @@ class Casa
 	boolean fechada;
 	int time;
 	boolean meta;
-	
+	int numJogadores;
 	
 }

@@ -16,9 +16,5 @@ class Main
 		
 		
 
-		//Janela NJ = new ViewAPI().J1;
-		//NJ.setResizable(false);
-		//NJ.setVisible(true);
-		//System.out.print("Ok3\n");
 	}
 }
