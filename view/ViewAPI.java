@@ -24,6 +24,7 @@ public class ViewAPI
 		//cards.add(PainelTabuleiro.getPainelTabuleiro(), "Painel Tabuleiro");
 		//J1.add(cards);
 		J1.setVisible(true);
+		J1.setResizable(false);
 	}
 	
 	public static ViewAPI getViewAPI()
