@@ -11,8 +11,8 @@ public class ModelAPI
 	final Jogador P3;
 	final Jogador P4;
 	public final Dado D1;
-	final Dado D2;
-	final Dado DC;
+	public final Dado D2;
+	public final Dado DC;
 
 	private static ModelAPI Jogo;
   
@@ -20,19 +20,9 @@ public class ModelAPI
 	{
 		P1 = new Jogador(Color.BLACK, 1, 0);
 		P2 = new Jogador(Color.GREEN, 2, 0);
-
-		if(numJogadores == 2)
-		{
-			P3 = null;
-			P4 = null;
-		}
-
-		else
-		{
-			P3 = new Jogador(Color.YELLOW, 3, 13);
-			P4 = new Jogador(Color.BLUE, 4, 13 );
-		}
-		
+		P3 = new Jogador(Color.YELLOW, 3, 13);
+		P4 = new Jogador(Color.BLUE, 4, 13 );
+				
 		D1 = new Dado();
 		D2 = new Dado();
 		DC = new Dado();
