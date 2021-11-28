@@ -1,68 +1,30 @@
 package model;
 
 class Carta
-{
-  
+{  
 	private String texto;
 	private int movimento;
-  
-	public void setCarta(String textoCarta)
+	private int movimento1[];
+	
+	public Carta(String textoCarta, int movimentoCarta)
 	{
 		this.texto = textoCarta;
+		this.movimento = movimentoCarta;
+	}
+	
+	public Carta(String textoCarta, int movimentoCarta[])
+	{
+		this.texto = textoCarta;
+		this.movimento1 = movimentoCarta;
+	}
+	
+	public String getCarta()
+	{
+		return texto;
 	}
 
-	public String getTextoCarta()
-	{
-		return this.texto;
-	}
-  
 	public int getMovimento()
 	{
-		return this.movimento;
+		return movimento;
 	}
-
 }
-
-
-
-/**
-Antes de mexer
-package model;
-
-public class carta{
-  
-  private String texto;
-  
-  final String[] valores =
-  {
-    "Carta 1",
-    "Carta 2",
-    "Carta 3",
-    "Carta 4",
-    "Carta 5",
-    "Carta 6",
-    "Carta 7",
-    "Carta 8",
-    "Carta 9",
-    "Carta 10",
-    "Carta 11",
-    "Carta 12",
-    "Carta 13",
-    "Carta 14",
-    "Carta 15",
-    "Carta 16",
-    "Carta 17",
-    "Carta 18"
-  };
-
-  protected carta(){
-    
-  }
-
-  public String getTextoCarta()
-  {
-    return textoCarta;
-  }
-
-}
-*/
