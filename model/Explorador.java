@@ -64,7 +64,7 @@ class Explorador
 		{
 			this.longitude += 12;
 		}
-    setMovimento(this.latitude, novaLongitude);
+   		setMovimento(this.latitude, novaLongitude);
 	}
 	
 	boolean setMovimento(int latitude, int longitude)
