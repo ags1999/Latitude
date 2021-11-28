@@ -4,18 +4,24 @@ class ModoJogo
 {
 	private static ModoJogo modo;
 	public static String[] cores = {"Vermelho", "Verde", "Azul", "Preto", "Branco", "Amarelo"};
-	private int modoJogo = 0;
+	private int modoJogo = 0;		// 1 para modo competitivo e -1 para modo em dupla
 	public int numJogadores;
 	private String nomeJogadores[] = new String[4];
 	
-	public static ModoJogo getModo(ModoJogo modoJogo, String[] nomes) {
-		if (modoJogo == null)
-			try {
-				modoJogo = new ModoJogo(modo, nomes);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		return modoJogo;
+	ModoJogo(int modoJ, int numJ)
+	{
+		this.modoJogo = modoJ;
+		this.numJogadores = numJ;
+	}
+	
+	public int getModo()
+	{
+		return this.modoJogo;
+	}
+	
+	public void setModo(int modo)
+	{
+		this.modoJogo = modo;
 	}
 	
 	private ModoJogo(int modo2, String[] nomes) {
@@ -23,8 +29,9 @@ class ModoJogo
 		this.nomeJogadores = nomes;
 	}
 	
-	public int getModoJogo() {
-		return this.modoJogo;
+	public int getNumJogadores()
+	{
+		return this.numJogadores;
 	}
 	
 	public String[] getJogadores() {
