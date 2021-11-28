@@ -22,5 +22,6 @@ public class ExploradorTest {
 		Jogador J1 = new Jogador(Color.BLACK, 1, 0);
 		Explorador ex1 = new Explorador(0,J1);
 		assertTrue(ex1.setMovimento(5, 7));
+		assertFalse(ex1.setMovimento(50, 70));
 	}
 }
