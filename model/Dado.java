@@ -6,19 +6,11 @@ import java.lang.Integer;
 
 class Dado 
 {
-	private Integer faceUp;
-	private Random r;
-
-	
-
-	Dado()
-	{
-		faceUp = 0;
-		r = new Random();
-	}
+	private int faceUp;
 
 	void rolaDado() 
 	{
+		Random r = new Random();
 		faceUp = r.nextInt(5)+1;
 	}
 
@@ -42,7 +34,9 @@ class Dado
 	  	
 			case 4:
 				return Color.GREEN;
-	  		
+				
+			case 5:
+				return Color.RED;	  		
 	  		
 			default:
 				return Color.WHITE; // Nada Acontece
