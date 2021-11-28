@@ -1,6 +1,20 @@
 package model;
-import org.junit.*;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+import model.*;
+import java.awt.Color;
 
 public class ExploradorTest {
+	//Jogador J1 = new Jogador(Color.BLACK, 1, 0);
+	//Explorador ex1 = new Explorador(0,J1);
+
+	@Test
+	public void criouExp()
+	{
+		Jogador J1 = new Jogador(Color.BLACK, 1, 0);
+		Explorador ex1 = new Explorador(0,J1);
+		assertNotNull("Criou novo explorador", ex1);
+	}
 
 }
