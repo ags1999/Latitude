@@ -22,5 +22,9 @@ public class ExploradorTest {
 		Jogador J1 = new Jogador(Color.BLACK, 1, 0);
 		Explorador ex1 = new Explorador(0,J1);
 		assertTrue(ex1.setMovimento(5, 7));
+<<<<<<< HEAD
+=======
+		assertFalse(ex1.setMovimento(50, 70));
+>>>>>>> branch 'master' of https://github.com/ags1999/Latitude.git
 	}
 }

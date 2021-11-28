@@ -18,6 +18,10 @@ class Explorador
 	
 	boolean movimentoValido(int latitude, int longitude)
 	{
+		if ((latitude > 12) || (longitude > 14))
+		{
+			return false;
+		}
 		Casa c1 = Tabuleiro.getTabuleiro().getCasa(latitude, longitude);
 		if(!c1.fechada || (c1.numJogadores > 1))
 		{
