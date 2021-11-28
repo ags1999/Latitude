@@ -60,6 +60,7 @@ class Explorador
 		{
 			this.longitude += 12;
 		}
+    setMovimento(this.latitude, novaLongitude);
 	}
 	
 	boolean setMovimento(int latitude, int longitude)
@@ -73,42 +74,15 @@ class Explorador
 		return false;
 	}
 	
-	boolean movimento(int latitude, int longitude)
-	{
-		objetivo += latitude;
-		if(this.latIni == 0)  // inicio no lado esquerdo
-		{
-			this.latitude += latitude;
-		}
-		else // inicio no lado direito;
-		{
-			this.latitude -= latitude;
-		}
-		this.longitude += longitude;
-    
-		if(this.longitude > 11) // ajuste na longitude
-		{
-			this.longitude -= 12;
-		}
-		else if (this.longitude < 0)
-		{
-			this.longitude += 12;
-		}
-    
-		if (objetivo >= 13) { //alcançou lado oposto
-			return true;
-		}
-		return false;
-	}
-  
 		
   //movimento inicial
+  /*
   protected boolean movimento(int latitude, int longitude, int longIni)
   {
     this.longitude = longIni;
     return this.movimento(latitude, longitude);
   }
-
+  */
   protected int getLatitude()
   {
     return this.latitude;

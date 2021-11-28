@@ -4,7 +4,7 @@ class Carta
 {  
 	private String texto;
 	private int movimento;
-	private int movimento1[];
+  private int movimento1[];
 	
 	public Carta(String textoCarta, int movimentoCarta)
 	{
@@ -17,7 +17,7 @@ class Carta
 		this.texto = textoCarta;
 		this.movimento1 = movimentoCarta;
 	}
-	
+  
 	public String getCarta()
 	{
 		return texto;
@@ -27,4 +27,5 @@ class Carta
 	{
 		return movimento;
 	}
+
 }

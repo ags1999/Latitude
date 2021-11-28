@@ -20,9 +20,9 @@ public class ModelAPI
 	{
 		P1 = new Jogador(Color.BLACK, 1, 0);
 		P2 = new Jogador(Color.GREEN, 2, 0);
-		P3 = new Jogador(Color.YELLOW, 3, 13);
+    P3 = new Jogador(Color.YELLOW, 3, 13);
 		P4 = new Jogador(Color.BLUE, 4, 13 );
-				
+		
 		D1 = new Dado();
 		D2 = new Dado();
 		DC = new Dado();
@@ -51,5 +51,28 @@ public class ModelAPI
 		{
 			return dado.getDado();
 		}		
-	}	
+	}
+
+  public void movimento(Explorador atual, boolean latitude, boolean avancar, int valor)
+  {
+    
+    Explorador ExpAtual = atual;
+    int v = valor;
+    if(!avancar)
+    {
+      v *= -1;
+    }
+
+    if(latitude)
+    {
+      ExpAtual.movimentoLatitude(v);
+    }
+    else
+    {
+      ExpAtual.movimentoLongitude(v);
+    }
+    
+
+
+  }	
 }

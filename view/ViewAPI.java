@@ -42,6 +42,9 @@ public class ViewAPI
 		return PaginaAtual;
 	}
 	
-	
+	static void setModo(boolean modo)
+  {
+    Controller.setModo(modo);
+  }
 	
 }

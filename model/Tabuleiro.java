@@ -25,6 +25,8 @@ class Tabuleiro
 			}
 		}
 
+
+    
 		i = 0;
 		while(i < 12) //atribui metas
 		{
@@ -65,31 +67,6 @@ class Tabuleiro
   			T1 = new Tabuleiro();
   		}
   		return T1;
-  	}
-	
-	private Carta [] setCartas()
-  	{
-  		Carta cartas[] = new Carta[3];
-  		String texto1 = "Ande com um de seus exploradores 6 casas no sentido que desejar (latitude ou longitude)";
-  		int movimento1 = 6;  		
-  		//Carta carta1 = Carta.setCarta(texto1, movimento1);
-  		Carta carta1 = new Carta(texto1, movimento1);
-  		
-  		String texto2 = "Escolha um dos seus exploradores e avance 3 casas (latitude ou longitude)";
-  		int movimento2 = 3;
-  		Carta carta2 = new Carta(texto2, movimento2);
-  		
-  		String texto3 = "Jogue novamente com um dado e ande com qualquer um de seus exploradores";
-  		Dado temp = new Dado();
-  		temp.rolaDado();
-  		int movimento3 = temp.getDado();
-  		Carta carta3 = new Carta(texto3, movimento3);
-  		
-  		cartas[1] = carta1;
-  		cartas[2] = carta2;
-  		cartas[3] = carta3;
-  		
-  		return cartas;
   	}
   
 }

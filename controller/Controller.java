@@ -2,40 +2,32 @@ package controller;
 import model.ModelAPI;
 import view.*;
 
-import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-
-
-public class Controller implements PropertyChangeListener
+public class Controller
 {
-	private static Controller ctrl;
 	
-	private Controller()
-	{
-		
-	}
-	
-	public static Controller getController()
-	{
-		if(ctrl == null)
-		{
-			ctrl = new Controller();
-		}
-		return ctrl;
-
-	}
-
-	@Override
-	public void propertyChange(PropertyChangeEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+  private static Controller ctrl;
+  private static boolean modoJogo;// true-competitivo, false-cooperativo
+  private static int numJogadores;
 
 	
-	
-	
+  void novoJogo()
+  {
 
-	
+  }
+
+  void carregarJogo()
+  {
+
+  }
+
+  public static void setModo(boolean modo)
+  {
+    modoJogo = modo;
+  }
+
+  public static void setNumJogadores(int num)
+  {
+    numJogadores = num;
+  }
 
 }

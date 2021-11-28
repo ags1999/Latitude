@@ -13,7 +13,6 @@ class ModoJogo
 			try {
 				modoJogo = new ModoJogo(modo, nomes);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		return modoJogo;
