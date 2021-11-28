@@ -4,7 +4,7 @@ class Carta
 {  
 	private String texto;
 	private int movimento;
-  private int movimento1[];
+ 	private int movimento1[];
 	
 	public Carta(String textoCarta, int movimentoCarta)
 	{
