@@ -10,9 +10,9 @@ public class Controller
   private static int numJogadores;
 
 	
-  void novoJogo()
+  public static void novoJogo()
   {
-
+	  ModelAPI.novoJogo(numJogadores, modoJogo);
   }
 
   void carregarJogo()
@@ -29,5 +29,15 @@ public class Controller
   {
     numJogadores = num;
   }
-
+  
+  public static Controller getController()
+  {
+	  return ctrl;
+  }
+  
+  public static void inicio()
+  {
+	  ViewAPI.inicio();
+  }
+  
 }

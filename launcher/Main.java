@@ -8,13 +8,12 @@ import controller.Controller;
 class Main
 {  
 	
-	static ModelAPI model;
-	static ViewAPI view = ViewAPI.getViewAPI();
-	static Controller ctrl = Controller.getController();
+	
 	public static void main(String[] args) 
 	{
 		
-		
-
+		ViewAPI view = ViewAPI.getViewAPI();
+		Controller ctrl = Controller.getController();
+		ModelAPI model = ModelAPI.getModelAPI();
 	}
 }

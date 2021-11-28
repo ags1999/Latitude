@@ -6,6 +6,7 @@ class Jogador{
 
   private Color cor;
   private int qtdPontos = 0, numJogador, qtdExploradores = 6;
+  int time;
   private Explorador[] listaExploradores = new Explorador[6]; 
 
   Jogador( Color corJog, int numJog, int ladoInicial) 

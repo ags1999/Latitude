@@ -37,14 +37,29 @@ public class ViewAPI
 
 	}
 	
+	public static void inicio()
+	{
+		Janela.getJanela().trocaPainel();
+	}
+	
 	public static byte getPaginaAtual()
 	{
 		return PaginaAtual;
 	}
 	
 	static void setModo(boolean modo)
-  {
-    Controller.setModo(modo);
-  }
+	{
+		Controller.setModo(modo);
+	}
+	
+	static void setNumJogadores(int num)
+	{
+		Controller.setNumJogadores(num);
+	}
+	
+	static void novoJogo()
+	{
+		Controller.novoJogo();
+	}
 	
 }

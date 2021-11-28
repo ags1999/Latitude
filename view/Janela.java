@@ -35,7 +35,7 @@ class Janela extends JFrame
 		cards.setLayout(crd);
 		
 		
-		//cards.add(PainelInicial.getPainelInicial(), "P1" );
+		cards.add(PainelInicial.getPainelInicial(), "P1" );
 		cards.add(PainelTabuleiro.getPainelTabuleiro(), "P2");
 		
 		MenuOpcoes.add(salvar);
@@ -46,6 +46,11 @@ class Janela extends JFrame
 		
 		this.add(cards);
 
+	}
+	
+	void trocaPainel()
+	{
+		crd.next(cards);
 	}
 	
 	static void setMenuVisibility(boolean status)

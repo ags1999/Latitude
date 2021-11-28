@@ -120,11 +120,14 @@ public class PainelInicial extends JPanel implements MouseListener
 		if(BotaoSuperior.contains(x, y))
 		{
 			ViewAPI.PaginaAtual = 3;
-			//System.out.print("hmmmPN\n");
+			ViewAPI.setNumJogadores(2);
+			ViewAPI.setModo(true);
+			ViewAPI.novoJogo();
 		}
 		else if(BotaoInferior.contains(x, y)) 
 		{
 			ViewAPI.PaginaAtual = 3;
+			ViewAPI.setNumJogadores(4);
 		}
 		else if(BotaoVoltar.contains(x, y)) 
 		{
@@ -141,11 +144,15 @@ public class PainelInicial extends JPanel implements MouseListener
 	{
 		if(BotaoSuperior.contains(x, y))
 		{
+			ViewAPI.setModo(true);
+			ViewAPI.novoJogo();
 			//ViewAPI.PaginaAtual = 4;
 			//System.out.print("hmmmPN\n");
 		}
-		if(BotaoInferior.contains(x, y))
+		else if(BotaoInferior.contains(x, y))
 		{
+			ViewAPI.setModo(false);
+			ViewAPI.novoJogo();
 			//ViewAPI.PaginaAtual = 4;
 			//System.out.print("hmmmPN\n");
 		}
