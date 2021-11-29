@@ -88,4 +88,36 @@ class Jogo
 		}
 		return J1;
 	}
+	
+	Jogador defineVencedor(Jogador[] jogadores)
+	{
+		int pontuacao[] = new int[4];
+		int pontos1 = jogadores[0].getPontos();
+		int pontos2 = jogadores[1].getPontos();
+		int pontos3 = jogadores[2].getPontos();
+		int pontos4 = jogadores[3].getPontos();
+		pontuacao[0] = pontos1;
+		pontuacao[1] = pontos2;
+		pontuacao[2] = pontos3;
+		pontuacao[3] = pontos4;
+		int i;
+		int maior = -1;
+		Jogador maiorJ = null;
+		for(i=0; i<4; i++)
+		{
+			if (pontuacao[i]>maior)
+			{
+				maior = pontuacao[i];
+				maiorJ = jogadores[i];
+			}
+		}
+		
+		if (maiorJ==null)
+		{
+			System.out.print("Erro na contagem de pontos.");
+			return null;
+		}
+		
+		return maiorJ;
+	}
 }
