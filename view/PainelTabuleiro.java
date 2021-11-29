@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 import java.awt.geom.Rectangle2D.Double;
+//import java.awt.geom.Rectangle2D.Double;
 import java.io.*;
 
 import javax.imageio.ImageIO;
@@ -36,14 +37,26 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	private static Image dado6;
 	
 	private static Rectangle2D RetDados = new Rectangle2D.Double(850, 100, 200, 50);
+	private Rectangle2D Limpar = new Rectangle2D.Double(900, 10, 100, 30);
 	
 	private static Font F1 = new Font("Arial", Font.BOLD, 30);
-	private static Color verde = new Color(0, 255, 0, 150);
+	private static Color CorCasas = new Color(255, 255, 255, 200);
+	
+	private static Exp[] Exploradores1 = new Exp[6];
+	private static Exp[] Exploradores2 = new Exp[6];
+	private static Exp[] Exploradores3 = new Exp[6];
+	private static Exp[] Exploradores4 = new Exp[6];
+	
+	static Exp selecionado = null;
 	
 	private PainelTabuleiro()
 	{
 		addMouseListener(this);
+		//addKeyListener(this);
+		//this.setFocusable(true);
+		inicializaExploradores();
 		iniciaCasas();
+		
 		try 
 		{
 			bkg = ImageIO.read(getClass().getResource("/Imagens/Latitude90-Tabuleiro.png"));
@@ -106,38 +119,38 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	private static void long1() 
 	{
 		
-		Casas[1][1] = new Rectangle2D.Double(220, 305, 20, 15);
-		Casas[2][1] = new Rectangle2D.Double(240, 285, 20, 15);
-		Casas[3][1] = new Rectangle2D.Double(255, 265, 20, 15);
-		Casas[4][1] = new Rectangle2D.Double(275, 250, 20, 15);
-		Casas[5][1] = new Rectangle2D.Double(295, 230, 20, 15);
-		Casas[6][1] = new Rectangle2D.Double(315, 215, 20, 15);
+		Casas[1][1] = new Rectangle2D.Double(220, 305, 18, 15);
+		Casas[2][1] = new Rectangle2D.Double(240, 285, 18, 15);
+		Casas[3][1] = new Rectangle2D.Double(255, 265, 18, 15);
+		Casas[4][1] = new Rectangle2D.Double(275, 250, 18, 15);
+		Casas[5][1] = new Rectangle2D.Double(295, 230, 18, 15);
+		Casas[6][1] = new Rectangle2D.Double(315, 215, 18, 15);
 		
-		Casas[7][1] = new Rectangle2D.Double(490, 305, 20, 15);
-		Casas[8][1] = new Rectangle2D.Double(475, 285, 20, 15);
-		Casas[9][1] = new Rectangle2D.Double(455, 265, 20, 15);
-		Casas[10][1] = new Rectangle2D.Double(435, 250, 20, 15);
-		Casas[11][1] = new Rectangle2D.Double(415, 230, 20, 15);
-		Casas[12][1] = new Rectangle2D.Double(395, 215, 20, 15);
+		Casas[7][1] = new Rectangle2D.Double(490, 305, 18, 15);
+		Casas[8][1] = new Rectangle2D.Double(475, 285, 18, 15);
+		Casas[9][1] = new Rectangle2D.Double(455, 265, 18, 15);
+		Casas[10][1] = new Rectangle2D.Double(435, 250, 18, 15);
+		Casas[11][1] = new Rectangle2D.Double(415, 230, 18, 15);
+		Casas[12][1] = new Rectangle2D.Double(395, 215, 18, 15);
 				
 	}
 	
 	private static void long2() 
 	{
 		
-		Casas[1][2] = new Rectangle2D.Double(200, 295, 20, 15);
-		Casas[2][2] = new Rectangle2D.Double(205, 270, 20, 15);
-		Casas[3][2] = new Rectangle2D.Double(210, 245, 20, 15);
-		Casas[4][2] = new Rectangle2D.Double(215, 220, 20, 15);
-		Casas[5][2] = new Rectangle2D.Double(220, 200, 20, 15);
-		Casas[6][2] = new Rectangle2D.Double(230, 180, 20, 15);
+		Casas[1][2] = new Rectangle2D.Double(200, 295, 18, 15);
+		Casas[2][2] = new Rectangle2D.Double(205, 270, 18, 15);
+		Casas[3][2] = new Rectangle2D.Double(210, 245, 18, 15);
+		Casas[4][2] = new Rectangle2D.Double(215, 220, 18, 15);
+		Casas[5][2] = new Rectangle2D.Double(220, 200, 18, 15);
+		Casas[6][2] = new Rectangle2D.Double(230, 180, 18, 15);
 		
-		Casas[7][2] = new Rectangle2D.Double(460, 180, 20, 15);
-		Casas[8][2] = new Rectangle2D.Double(470, 200, 20, 15);
-		Casas[9][2] = new Rectangle2D.Double(480, 220, 20, 15);
-		Casas[10][2] = new Rectangle2D.Double(490, 245, 20, 15);
-		Casas[11][2] = new Rectangle2D.Double(500, 270, 20, 15);
-		Casas[12][2] = new Rectangle2D.Double(510, 295, 20, 15);
+		Casas[7][2] = new Rectangle2D.Double(460, 180, 18, 15);
+		Casas[8][2] = new Rectangle2D.Double(470, 200, 18, 15);
+		Casas[9][2] = new Rectangle2D.Double(480, 220, 18, 15);
+		Casas[10][2] = new Rectangle2D.Double(490, 245, 18, 15);
+		Casas[11][2] = new Rectangle2D.Double(500, 270, 18, 15);
+		Casas[12][2] = new Rectangle2D.Double(510, 295, 18, 15);
 		
 		
 	}
@@ -145,36 +158,36 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	private static void long3() 
 	{
 		
-		Casas[1][3] = new Rectangle2D.Double(175, 295, 20, 15);
-		Casas[2][3] = new Rectangle2D.Double(165, 270, 20, 15);
-		Casas[3][3] = new Rectangle2D.Double(155, 250, 20, 15);
-		Casas[4][3] = new Rectangle2D.Double(145, 230, 20, 15);
-		Casas[5][3] = new Rectangle2D.Double(135, 205, 20, 15);
-		Casas[6][3] = new Rectangle2D.Double(125, 180, 20, 15);
+		Casas[1][3] = new Rectangle2D.Double(175, 295, 18, 15);
+		Casas[2][3] = new Rectangle2D.Double(165, 270, 18, 15);
+		Casas[3][3] = new Rectangle2D.Double(155, 250, 18, 15);
+		Casas[4][3] = new Rectangle2D.Double(145, 230, 18, 15);
+		Casas[5][3] = new Rectangle2D.Double(135, 205, 18, 15);
+		Casas[6][3] = new Rectangle2D.Double(125, 180, 18, 15);
 		
-		Casas[7][3] = new Rectangle2D.Double(570, 175, 20, 15);
-		Casas[8][3] = new Rectangle2D.Double(560, 200, 20, 15);
-		Casas[9][3] = new Rectangle2D.Double(550, 220, 20, 15);
-		Casas[10][3] = new Rectangle2D.Double(540, 245, 20, 15);
-		Casas[11][3] = new Rectangle2D.Double(535, 270, 20, 15);
-		Casas[12][3] = new Rectangle2D.Double(530, 295, 20, 15);
+		Casas[7][3] = new Rectangle2D.Double(570, 175, 18, 15);
+		Casas[8][3] = new Rectangle2D.Double(560, 200, 18, 15);
+		Casas[9][3] = new Rectangle2D.Double(550, 220, 18, 15);
+		Casas[10][3] = new Rectangle2D.Double(540, 245, 18, 15);
+		Casas[11][3] = new Rectangle2D.Double(535, 270, 18, 15);
+		Casas[12][3] = new Rectangle2D.Double(530, 295, 18, 15);
 	}
 	
 	private static void long4() 
 	{
-		Casas[1][4] = new Rectangle2D.Double(155, 305, 20, 15);
-		Casas[2][4] = new Rectangle2D.Double(135, 285, 20, 15);
-		Casas[3][4] = new Rectangle2D.Double(120, 270, 20, 15);
-		Casas[4][4] = new Rectangle2D.Double(105, 255, 20, 15);
-		Casas[5][4] = new Rectangle2D.Double(80, 240, 20, 15);
-		Casas[6][4] = new Rectangle2D.Double(55, 220, 20, 15);
+		Casas[1][4] = new Rectangle2D.Double(155, 305, 18, 15);
+		Casas[2][4] = new Rectangle2D.Double(135, 285, 18, 15);
+		Casas[3][4] = new Rectangle2D.Double(120, 270, 18, 15);
+		Casas[4][4] = new Rectangle2D.Double(105, 255, 18, 15);
+		Casas[5][4] = new Rectangle2D.Double(80, 240, 18, 15);
+		Casas[6][4] = new Rectangle2D.Double(55, 220, 18, 15);
 		
-		Casas[7][4] = new Rectangle2D.Double(650, 220, 20, 15);
-		Casas[8][4] = new Rectangle2D.Double(630, 235, 20, 15);
-		Casas[9][4] = new Rectangle2D.Double(615, 255, 20, 15);
-		Casas[10][4] = new Rectangle2D.Double(590, 270, 20, 15);
-		Casas[11][4] = new Rectangle2D.Double(570, 285, 20, 15);
-		Casas[12][4] = new Rectangle2D.Double(555, 305, 20, 15);
+		Casas[7][4] = new Rectangle2D.Double(650, 220, 18, 15);
+		Casas[8][4] = new Rectangle2D.Double(630, 235, 18, 15);
+		Casas[9][4] = new Rectangle2D.Double(615, 255, 18, 15);
+		Casas[10][4] = new Rectangle2D.Double(590, 270, 18, 15);
+		Casas[11][4] = new Rectangle2D.Double(570, 285, 18, 15);
+		Casas[12][4] = new Rectangle2D.Double(555, 305, 18, 15);
 		
 	}
 	
@@ -216,73 +229,73 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	
 	private static void long7()
 	{
-		Casas[1][7] = new Rectangle2D.Double(155, 370, 20, 15);
-		Casas[2][7] = new Rectangle2D.Double(135, 385, 20, 15);
-		Casas[3][7] = new Rectangle2D.Double(120, 405, 20, 15);
-		Casas[4][7] = new Rectangle2D.Double(105, 425, 20, 15);
-		Casas[5][7] = new Rectangle2D.Double(80, 445, 20, 15);
-		Casas[6][7] = new Rectangle2D.Double(55, 465, 20, 15);
+		Casas[1][7] = new Rectangle2D.Double(155, 370, 18, 15);
+		Casas[2][7] = new Rectangle2D.Double(135, 385, 18, 15);
+		Casas[3][7] = new Rectangle2D.Double(120, 405, 18, 15);
+		Casas[4][7] = new Rectangle2D.Double(105, 425, 18, 15);
+		Casas[5][7] = new Rectangle2D.Double(80, 445, 18, 15);
+		Casas[6][7] = new Rectangle2D.Double(55, 465, 18, 15);
 		
-		Casas[7][7] = new Rectangle2D.Double(650, 465, 20, 15);
-		Casas[8][7] = new Rectangle2D.Double(630, 445, 20, 15);
-		Casas[9][7] = new Rectangle2D.Double(615, 425, 20, 15);
-		Casas[10][7] = new Rectangle2D.Double(590, 405, 20, 15);
-		Casas[11][7] = new Rectangle2D.Double(570, 385, 20, 15);
-		Casas[12][7] = new Rectangle2D.Double(555, 370, 20, 15);
+		Casas[7][7] = new Rectangle2D.Double(650, 465, 18, 15);
+		Casas[8][7] = new Rectangle2D.Double(630, 445, 18, 15);
+		Casas[9][7] = new Rectangle2D.Double(615, 425, 18, 15);
+		Casas[10][7] = new Rectangle2D.Double(590, 405, 18, 15);
+		Casas[11][7] = new Rectangle2D.Double(570, 385, 18, 15);
+		Casas[12][7] = new Rectangle2D.Double(555, 370, 18, 15);
 	}
 	
 	private static void long8()
 	{
-		Casas[1][8] = new Rectangle2D.Double(180, 385, 20, 15);
-		Casas[2][8] = new Rectangle2D.Double(165, 405, 20, 15);
-		Casas[3][8] = new Rectangle2D.Double(155, 425, 20, 15);
-		Casas[4][8] = new Rectangle2D.Double(145, 455, 20, 15);
-		Casas[5][8] = new Rectangle2D.Double(135, 475, 20, 15);
-		Casas[6][8] = new Rectangle2D.Double(125, 495, 20, 15);
+		Casas[1][8] = new Rectangle2D.Double(180, 385, 18, 15);
+		Casas[2][8] = new Rectangle2D.Double(165, 405, 18, 15);
+		Casas[3][8] = new Rectangle2D.Double(155, 425, 18, 15);
+		Casas[4][8] = new Rectangle2D.Double(145, 455, 18, 15);
+		Casas[5][8] = new Rectangle2D.Double(135, 475, 18, 15);
+		Casas[6][8] = new Rectangle2D.Double(125, 495, 18, 15);
 		
-		Casas[7][8] = new Rectangle2D.Double(570, 495, 20, 15);
-		Casas[8][8] = new Rectangle2D.Double(560, 475, 20, 15);
-		Casas[9][8] = new Rectangle2D.Double(550, 455, 20, 15);
-		Casas[10][8] = new Rectangle2D.Double(540, 425, 20, 15);
-		Casas[11][8] = new Rectangle2D.Double(535, 405, 20, 15);
-		Casas[12][8] = new Rectangle2D.Double(530, 385, 20, 15);
+		Casas[7][8] = new Rectangle2D.Double(570, 495, 18, 15);
+		Casas[8][8] = new Rectangle2D.Double(560, 475, 18, 15);
+		Casas[9][8] = new Rectangle2D.Double(550, 455, 18, 15);
+		Casas[10][8] = new Rectangle2D.Double(540, 425, 18, 15);
+		Casas[11][8] = new Rectangle2D.Double(535, 405, 18, 15);
+		Casas[12][8] = new Rectangle2D.Double(530, 385, 18, 15);
 	}
 	
 	private static void long9()
 	{
 		
-		Casas[1][9] = new Rectangle2D.Double(200, 385, 20, 15);
-		Casas[2][9] = new Rectangle2D.Double(205, 405, 20, 15);
-		Casas[3][9] = new Rectangle2D.Double(210, 430, 20, 15);
-		Casas[4][9] = new Rectangle2D.Double(215, 450, 20, 15);
-		Casas[5][9] = new Rectangle2D.Double(220, 475, 20, 15);
-		Casas[6][9] = new Rectangle2D.Double(230, 495, 20, 15);
+		Casas[1][9] = new Rectangle2D.Double(200, 385, 18, 15);
+		Casas[2][9] = new Rectangle2D.Double(205, 405, 18, 15);
+		Casas[3][9] = new Rectangle2D.Double(210, 430, 18, 15);
+		Casas[4][9] = new Rectangle2D.Double(215, 450, 18, 15);
+		Casas[5][9] = new Rectangle2D.Double(220, 475, 18, 15);
+		Casas[6][9] = new Rectangle2D.Double(230, 495, 18, 15);
 		
-		Casas[7][9] = new Rectangle2D.Double(460, 495, 20, 15);
-		Casas[8][9] = new Rectangle2D.Double(470, 475, 20, 15);
-		Casas[9][9] = new Rectangle2D.Double(480, 450, 20, 15);
-		Casas[10][9] = new Rectangle2D.Double(490, 430, 20, 15);
-		Casas[11][9] = new Rectangle2D.Double(500, 405, 20, 15);
-		Casas[12][9] = new Rectangle2D.Double(510, 385, 20, 15);
+		Casas[7][9] = new Rectangle2D.Double(460, 495, 18, 15);
+		Casas[8][9] = new Rectangle2D.Double(470, 475, 18, 15);
+		Casas[9][9] = new Rectangle2D.Double(480, 450, 18, 15);
+		Casas[10][9] = new Rectangle2D.Double(490, 430, 18, 15);
+		Casas[11][9] = new Rectangle2D.Double(500, 405, 18, 15);
+		Casas[12][9] = new Rectangle2D.Double(510, 385, 18, 15);
 
 	}
 	
 	private static void long10()
 	{
 		
-		Casas[1][10] = new Rectangle2D.Double(220, 365, 20, 15);
-		Casas[2][10] = new Rectangle2D.Double(240, 385, 20, 15);
-		Casas[3][10] = new Rectangle2D.Double(255, 405, 20, 15);
-		Casas[4][10] = new Rectangle2D.Double(275, 425, 20, 15);
-		Casas[5][10] = new Rectangle2D.Double(295, 445, 20, 15);
-		Casas[6][10] = new Rectangle2D.Double(315, 460, 20, 15);
+		Casas[1][10] = new Rectangle2D.Double(220, 365, 18, 15);
+		Casas[2][10] = new Rectangle2D.Double(240, 385, 18, 15);
+		Casas[3][10] = new Rectangle2D.Double(255, 405, 18, 15);
+		Casas[4][10] = new Rectangle2D.Double(275, 425, 18, 15);
+		Casas[5][10] = new Rectangle2D.Double(295, 445, 18, 15);
+		Casas[6][10] = new Rectangle2D.Double(315, 460, 18, 15);
 		
-		Casas[7][10] = new Rectangle2D.Double(395, 460, 20, 15);
-		Casas[8][10] = new Rectangle2D.Double(415, 445, 20, 15);
-		Casas[9][10] = new Rectangle2D.Double(435, 425, 20, 15);
-		Casas[10][10] = new Rectangle2D.Double(455, 405, 20, 15);
-		Casas[11][10] = new Rectangle2D.Double(475, 385, 20, 15);
-		Casas[12][10] = new Rectangle2D.Double(490, 365, 20, 15);
+		Casas[7][10] = new Rectangle2D.Double(395, 460, 18, 15);
+		Casas[8][10] = new Rectangle2D.Double(415, 445, 18, 15);
+		Casas[9][10] = new Rectangle2D.Double(435, 425, 18, 15);
+		Casas[10][10] = new Rectangle2D.Double(455, 405, 18, 15);
+		Casas[11][10] = new Rectangle2D.Double(475, 385, 18, 15);
+		Casas[12][10] = new Rectangle2D.Double(490, 365, 18, 15);
 		
 	}
 	
@@ -306,51 +319,7 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	
 	/****************************************************/
 	
-	private class IMouse implements MouseListener
-	{
-
-		@Override
-		public void mouseClicked(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
 	
-	private class IAction implements ActionListener
-	{
-
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
 	
 	private void addCasas(Graphics2D g)
 	{
@@ -374,22 +343,26 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 		g2d.drawImage(bkg, 0, 0, null);
 		
 		g2d.setColor(Color.WHITE);
+		g2d.fill(Limpar);
 		g2d.fill(RetDados);
 		
 		g2d.setColor(Color.BLACK);
 		g2d.setFont(F1);
 		g2d.drawString("Rolar Dados", 860, 140);
+		g2d.drawString("Limpar", 900, 30);
 		
 		g2d.setPaint(Color.GREEN);
-		//Ellipse2D centro1 = new Ellipse2D.Double();
-		//centro1.setFrameFromCenter(205,365,205+8,365+8);
-		//g2d.fill(centro1);
+
 		setDado(g2d);
-		g2d.setPaint(verde);
+		g2d.setPaint(CorCasas);
 		g2d.fill(Casas[0][0]);
 		g2d.fill(Casas[13][0]);
 		addCasas(g2d);
-		
+		desenhaExploradores(g2d);
+		//g2d.setColor(Color.BLACK);
+		//Exploradores1[0] = new Exp(175, 320, Color.BLACK);
+		//g2d.fill(Exploradores1[0]);
+		exploradorSelecionado(selecionado ,g2d);
 	}
 	
 	public static PainelTabuleiro getPainelTabuleiro()
@@ -420,10 +393,103 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 		 coordenadas = new int[]{latitude, longitude};
 		 return coordenadas;
 	}
-
+	
+	void desenhaExploradores(Graphics2D g2d)
+	{
+		desenhaExp1(g2d);
+		desenhaExp2(g2d);
+	}
+	
+	private void desenhaExp1(Graphics2D g2d)
+	{
+		g2d.setColor(Color.BLACK);
+		for(int i = 0; i < 6; i++)
+		{
+			g2d.fill(Exploradores1[i]);
+		}
+	}
+	
+	private void desenhaExp2(Graphics2D g2d)
+	{
+		g2d.setColor(Color.GREEN);
+		for(int i = 0; i < 6; i++)
+		{
+			g2d.fill(Exploradores2[i]);
+		}
+	}
+	
+	static void inicializaExploradores()
+	{
+		Exploradores1[0] = new Exp(175, 320, Color.BLACK);
+		Exploradores1[1] = new Exp(175, 330, Color.BLACK);
+		Exploradores1[2] = new Exp(175, 340, Color.BLACK);
+		Exploradores1[3] = new Exp(185, 320, Color.BLACK);
+		Exploradores1[4] = new Exp(185, 330, Color.BLACK);
+		Exploradores1[5] = new Exp(185, 340, Color.BLACK);
+		
+		Exploradores2[0] = new Exp(510, 320, Color.GREEN);
+		Exploradores2[1] = new Exp(510, 330, Color.GREEN);
+		Exploradores2[2] = new Exp(510, 340, Color.GREEN);
+		Exploradores2[3] = new Exp(520, 320, Color.GREEN);
+		Exploradores2[4] = new Exp(520, 330, Color.GREEN);
+		Exploradores2[5] = new Exp(520, 340, Color.GREEN);
+	}
+	
+	void exploradorSelecionado(Exp select,Graphics2D g2d)
+	{
+		if(select != null)
+		{
+			g2d.setColor(Color.RED);
+			g2d.draw(new Rectangle2D.Double(select.getX(), select.getY(), 8, 8));
+		}
+	}
+	
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		//TODO
+	public void mouseClicked(MouseEvent arg0) 
+	{
+		int x = arg0.getX();
+		int y = arg0.getY();
+		Exp[] lista = null;
+		switch(ViewAPI.getNumJogadorAtual())
+		{
+			case 1:
+				lista = Exploradores1;
+				break;
+			case 2:
+				lista = Exploradores2;
+				break;
+			case 3:
+				lista = Exploradores3;
+				break;
+			case 4:
+				lista = Exploradores4;
+				break;
+		}
+		
+		for(int i = 0; i < 6; i++)
+		{
+			if((lista[i].contains(x, y)) && (lista != null))
+			{
+				selecionado = lista[i];
+				PN.repaint();
+			}
+			
+		if(this.Limpar.contains(x, y))
+		{
+			PainelTabuleiro.deselect();
+		}
+	}
+		
+	}
+	
+	static void deselect()
+	{
+		if(selecionado != null) 
+		{
+			selecionado.selecionado = false;
+			selecionado = null;
+			PN.repaint();
+		}
 	}
 
 	@Override
@@ -437,5 +503,7 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {}
+
+	
 	
 }

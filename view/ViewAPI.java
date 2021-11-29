@@ -62,4 +62,8 @@ public class ViewAPI
 		Controller.novoJogo();
 	}
 	
+	static int getNumJogadorAtual()
+	{
+		return Controller.getNumJogadorAtual();
+	}
 }

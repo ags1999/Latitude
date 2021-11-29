@@ -36,27 +36,34 @@ public class ModelAPI
 			return dado.getDado();
 		}		
 	}
+	
+	public Color getCorJogAtual()
+	{
+		return J1.atual.getColor();
+	}
 
-  public void movimento(Explorador atual, boolean latitude, boolean avancar, int valor)
-  {
+	public void movimento(Explorador atual, boolean latitude, boolean avancar, int valor)
+	{
     
-    Explorador ExpAtual = atual;
-    int v = valor;
-    if(!avancar)
-    {
-      v *= -1;
-    }
+		Explorador ExpAtual = atual;
+		int v = valor;
+		if(!avancar)
+		{
+			v *= -1;
+		}
 
-    if(latitude)
-    {
-      ExpAtual.movimentoLatitude(v);
+		if(latitude)
+		{
+			ExpAtual.movimentoLatitude(v);
+		}
+		else
+		{
+			ExpAtual.movimentoLongitude(v);
+		}
     }
-    else
-    {
-      ExpAtual.movimentoLongitude(v);
-    }
-    
-
-
-  }	
+	
+	public static int getJogadorAtual()
+	{
+		return Jogo.J1.atual.getNumJogador();
+	}
 }

@@ -40,4 +40,10 @@ public class Controller
 	  ViewAPI.inicio();
   }
   
+  public static int getNumJogadorAtual()
+  {
+	  return ModelAPI.getJogadorAtual();
+			  
+  }
+  
 }
