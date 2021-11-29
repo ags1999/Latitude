@@ -486,6 +486,11 @@ void rolarDado2()
 	{
 		desenhaExp1(g2d);
 		desenhaExp2(g2d);
+		if(ViewAPI.getNumJogadores() == 4)
+		{
+			desenhaExp3(g2d);
+			desenhaExp4(g2d);
+		}
 	}
 	
 	private void desenhaExp1(Graphics2D g2d)
@@ -506,21 +511,53 @@ void rolarDado2()
 		}
 	}
 	
+	private void desenhaExp3(Graphics2D g2d)
+	{
+		g2d.setColor(Color.YELLOW);
+		for(int i = 0; i < 6; i++)
+		{
+			g2d.fill(Exploradores3[i]);
+		}
+	}
+	
+	private void desenhaExp4(Graphics2D g2d)
+	{
+		g2d.setColor(Color.BLUE);
+		for(int i = 0; i < 6; i++)
+		{
+			g2d.fill(Exploradores4[i]);
+		}
+	}
+	
 	static void inicializaExploradores()
 	{
-		Exploradores1[0] = new Exp(175, 320, Color.BLACK);
-		Exploradores1[1] = new Exp(175, 330, Color.BLACK);
-		Exploradores1[2] = new Exp(175, 340, Color.BLACK);
-		Exploradores1[3] = new Exp(185, 320, Color.BLACK);
-		Exploradores1[4] = new Exp(185, 330, Color.BLACK);
-		Exploradores1[5] = new Exp(185, 340, Color.BLACK);
+		Exploradores1[0] = new Exp(175, 320, Color.BLACK, 0);
+		Exploradores1[1] = new Exp(175, 330, Color.BLACK, 1);
+		Exploradores1[2] = new Exp(175, 340, Color.BLACK, 2);
+		Exploradores1[3] = new Exp(185, 320, Color.BLACK, 3);
+		Exploradores1[4] = new Exp(185, 330, Color.BLACK, 4);
+		Exploradores1[5] = new Exp(185, 340, Color.BLACK, 5);
 		
-		Exploradores2[0] = new Exp(510, 320, Color.GREEN);
-		Exploradores2[1] = new Exp(510, 330, Color.GREEN);
-		Exploradores2[2] = new Exp(510, 340, Color.GREEN);
-		Exploradores2[3] = new Exp(520, 320, Color.GREEN);
-		Exploradores2[4] = new Exp(520, 330, Color.GREEN);
-		Exploradores2[5] = new Exp(520, 340, Color.GREEN);
+		Exploradores2[0] = new Exp(510, 320, Color.GREEN, 0);
+		Exploradores2[1] = new Exp(510, 330, Color.GREEN, 1);
+		Exploradores2[2] = new Exp(510, 340, Color.GREEN, 2);
+		Exploradores2[3] = new Exp(520, 320, Color.GREEN, 3);
+		Exploradores2[4] = new Exp(520, 330, Color.GREEN, 4);
+		Exploradores2[5] = new Exp(520, 340, Color.GREEN, 5);
+		
+		Exploradores3[0] = new Exp(195, 320, Color.BLACK, 0);
+		Exploradores3[1] = new Exp(195, 330, Color.BLACK, 1);
+		Exploradores3[2] = new Exp(195, 340, Color.BLACK, 2);
+		Exploradores3[3] = new Exp(205, 320, Color.BLACK, 3);
+		Exploradores3[4] = new Exp(205, 330, Color.BLACK, 4);
+		Exploradores3[5] = new Exp(205, 340, Color.BLACK, 5);
+		
+		Exploradores4[0] = new Exp(530, 320, Color.BLACK, 0);
+		Exploradores4[1] = new Exp(530, 330, Color.BLACK, 1);
+		Exploradores4[2] = new Exp(530, 340, Color.BLACK, 2);
+		Exploradores4[3] = new Exp(540, 320, Color.BLACK, 3);
+		Exploradores4[4] = new Exp(540, 330, Color.BLACK, 4);
+		Exploradores4[5] = new Exp(540, 340, Color.BLACK, 5);
 	}
 	
 	void exploradorSelecionado(Exp select,Graphics2D g2d)
@@ -546,6 +583,7 @@ void rolarDado2()
 	@Override
 	public void mouseClicked(MouseEvent arg0) 
 	{
+		boolean movimento;
 		boolean RP = false;
 		int x = arg0.getX();
 		int y = arg0.getY();
@@ -599,10 +637,21 @@ void rolarDado2()
 				
 		}
 		
+		if(selecionado != null) 
+		{
+			for(int i = 0; i < 14; i++)
+			{
+				for(int j = 0; j < 12; j++)
+				{
+					if(Casas[i][j].contains(x,y))
+					{
+						ViewAPI.movimento(selecionado.index);
+					}
+				}
+			}
+		}
 		if(RP)
 		{
-			//D1 = dado3;
-			//D2 = dado3;
 			System.out.println("repaint");
 			PN.repaint();
 		}
@@ -626,6 +675,15 @@ void rolarDado2()
 		}
 		//System.out.println(0);
 		return 0;
+	}
+	
+	int getExpIndex(Exp select)
+	{
+		if(select == null)
+		{
+			return -1;
+		}
+		return select.index;
 	}
 	
 	@Override

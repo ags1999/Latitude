@@ -10,11 +10,13 @@ class Exp extends Rectangle2D.Double
 	Color CorJogador;
 	static int altura = 8;
 	static int largura = 8;
+	int index;
 	boolean selecionado;
 	
-	Exp(int x, int y, Color Jog)
+	Exp(int x, int y, Color Jog, int index)
 	{
 		
+		this.index = index;
 		this.CorJogador = Jog;
 		this.setRect(x, y, 8, 8);
 	}

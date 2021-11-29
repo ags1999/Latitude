@@ -72,4 +72,19 @@ public class ViewAPI
 		return Controller.getRolaDado(tipo);
 	}
 	
+	static boolean movimento(int index)
+	{
+		return Controller.movimento();
+	}
+	
+	static boolean getModoJogo()
+	{
+		return Controller.getModoJogo();
+	}
+	
+	static int getNumJogadores()
+	{
+		return Controller.getNumJogadores();
+	}
+			
 }

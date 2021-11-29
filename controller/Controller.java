@@ -52,4 +52,19 @@ public class Controller
 	  
   }
   
+  public static boolean movimento()
+  {
+	  return false;
+  }
+  
+  public static boolean getModoJogo()
+  {
+	  return modoJogo;
+  }
+  
+  public static int getNumJogadores()
+  {
+	  return numJogadores;
+  }
+  
 }
