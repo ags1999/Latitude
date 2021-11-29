@@ -93,6 +93,12 @@ class Tabuleiro
   		
   		return cartas;
   	}
+	
+	private Carta getCarta(Carta[] deck)
+  	{
+  		Random cart = new Random();
+  		return deck[cart.nextInt(17)];		// Para testar cartas implementadas, trocar 17 por 2
+  	}
   
 }
 
