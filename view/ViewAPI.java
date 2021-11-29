@@ -66,4 +66,10 @@ public class ViewAPI
 	{
 		return Controller.getNumJogadorAtual();
 	}
+	
+	static Object getRolaDado(boolean tipo)
+	{
+		return Controller.getRolaDado(tipo);
+	}
+	
 }

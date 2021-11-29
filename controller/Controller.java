@@ -46,4 +46,10 @@ public class Controller
 			  
   }
   
+  public static Object getRolaDado(boolean tipo)
+  {
+	  return ModelAPI.rolaDado(tipo);
+	  
+  }
+  
 }

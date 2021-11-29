@@ -29,12 +29,15 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	
 	private static PainelTabuleiro PN = null;
 	private static Image bkg;
-	private static Image dado1;
-	private static Image dado2;
-	private static Image dado3;
-	private static Image dado4;
-	private static Image dado5;
-	private static Image dado6;
+	private Image dado1;
+	private Image dado2;
+	private Image dado3;
+	private Image dado4;
+	private Image dado5;
+	private Image dado6;
+	
+	private Image D1 = null;
+	private Image D2 = null;
 	
 	private static Rectangle2D RetDados = new Rectangle2D.Double(850, 100, 200, 50);
 	private Rectangle2D Limpar = new Rectangle2D.Double(900, 10, 100, 30);
@@ -52,8 +55,6 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	private PainelTabuleiro()
 	{
 		addMouseListener(this);
-		//addKeyListener(this);
-		//this.setFocusable(true);
 		inicializaExploradores();
 		iniciaCasas();
 		
@@ -359,9 +360,6 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 		g2d.fill(Casas[13][0]);
 		addCasas(g2d);
 		desenhaExploradores(g2d);
-		//g2d.setColor(Color.BLACK);
-		//Exploradores1[0] = new Exp(175, 320, Color.BLACK);
-		//g2d.fill(Exploradores1[0]);
 		exploradorSelecionado(selecionado ,g2d);
 	}
 	
@@ -374,32 +372,53 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 	
 	void setDado(Graphics2D g)
 	{
-		g.drawImage(dado1, D1X, D1Y, null);
-		g.drawImage(dado2, D2X, D2Y, null);
+		if(D1 == null) 
+		{
+			System.out.println("D1 nulo");
+			D1 = dado1;
+		
+		}
+		if(D2 == null)
+		{
+			System.out.println("D2 nulo");
+			D2 = dado1;
+		}
+		g.drawImage(D1, D1X, D1Y, null);
+		g.drawImage(D2, D2X, D2Y, null);
 	}
 	
-	void rolarDados(Graphics2D g)
+	void rolarDadoNum(Image dado)
 	{
-		int dadoV = (int)ModelAPI.getModelAPI().rolaDado(false);
+		int dadoV = (int)ViewAPI.getRolaDado(false);
+		
 		switch(dadoV)
 		{
 			case 1:
-				g.drawImage(dado1, D1X, D1Y, null);
-	  	
+				System.out.println(" e 1");
+				dado = dado1;
+				break;
 			case 2:
-				g.drawImage(dado2, D1X, D1Y, null);
-	  		
+				System.out.println(" e 2");
+				dado = dado2;
+				break;
 			case 3:
-				g.drawImage(dado3, D1X, D1Y, null);
-	  	
+				System.out.println(" e 3");
+				dado = dado3;
+				break;
 			case 4:
-				g.drawImage(dado4, D1X, D1Y, null);
-				
+				System.out.println(" e 4");
+				dado = dado4;
+				break;
 			case 5:
-				g.drawImage(dado5, D1X, D1Y, null);	  		
-	  		
+				System.out.println(" e 5");
+				dado = dado5;		
+				break;
 			default:
-				g.drawImage(dado6, D1X, D1Y, null);
+				System.out.println(" e 6");
+				dado = dado6;
+				break;
+		}
+		
 	}
 	
 	int[] getCoordenadas(int x, int y)
@@ -468,11 +487,24 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 		}
 	}
 	
+	
+	static void deselect()
+	{
+		if(selecionado != null) 
+		{
+			selecionado.selecionado = false;
+			selecionado = null;
+			PN.repaint();
+		}
+	}
+	
 	@Override
 	public void mouseClicked(MouseEvent arg0) 
 	{
+		boolean RP = false;
 		int x = arg0.getX();
 		int y = arg0.getY();
+		//System.out.printf("x = %d y = %d\n", x, y);
 		Exp[] lista = null;
 		switch(ViewAPI.getNumJogadorAtual())
 		{
@@ -495,27 +527,62 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 			if((lista[i].contains(x, y)) && (lista != null))
 			{
 				selecionado = lista[i];
-				PN.repaint();
+				RP = true;
+				
 			}
-			
+		}	
+		
 		if(this.Limpar.contains(x, y))
 		{
 			PainelTabuleiro.deselect();
 		}
-	}
 		
-	}
-	
-	static void deselect()
-	{
-		if(selecionado != null) 
+		
+		switch(contemDado(x, y))
 		{
-			selecionado.selecionado = false;
-			selecionado = null;
+			case 0:
+				break;
+				
+			case 1:
+				this.rolarDadoNum(D1);
+				RP = true;
+				break;
+			case 2:
+				this.rolarDadoNum(D2);
+				RP = true;
+				break;
+				
+		}
+		
+		if(RP)
+		{
+			//D1 = dado3;
+			//D2 = dado3;
+			System.out.println("repaint");
 			PN.repaint();
 		}
+		
+	
+		
 	}
 
+	int contemDado(int x, int y)
+	{
+		
+		if(( x >= 800 && x <= 900) && (y >= 300 && y <= 400))
+		{
+			//System.out.println(1);
+			return 1;
+		}
+		else if((x >= 1000 && x <= 1100) && (y >= 300 && y <= 400))
+		{
+			//System.out.println(2);
+			return 2;
+		}
+		//System.out.println(0);
+		return 0;
+	}
+	
 	@Override
 	public void mouseEntered(MouseEvent arg0) {}
 
