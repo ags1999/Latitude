@@ -378,6 +378,30 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 		g.drawImage(dado2, D2X, D2Y, null);
 	}
 	
+	void rolarDados(Graphics2D g)
+	{
+		int dadoV = (int)ModelAPI.getModelAPI().rolaDado(false);
+		switch(dadoV)
+		{
+			case 1:
+				g.drawImage(dado1, D1X, D1Y, null);
+	  	
+			case 2:
+				g.drawImage(dado2, D1X, D1Y, null);
+	  		
+			case 3:
+				g.drawImage(dado3, D1X, D1Y, null);
+	  	
+			case 4:
+				g.drawImage(dado4, D1X, D1Y, null);
+				
+			case 5:
+				g.drawImage(dado5, D1X, D1Y, null);	  		
+	  		
+			default:
+				g.drawImage(dado6, D1X, D1Y, null);
+	}
+	
 	int[] getCoordenadas(int x, int y)
 	{
 		 int[] coordenadas;
