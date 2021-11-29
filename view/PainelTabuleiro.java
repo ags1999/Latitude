@@ -385,42 +385,87 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 		}
 		g.drawImage(D1, D1X, D1Y, null);
 		g.drawImage(D2, D2X, D2Y, null);
+		if(D1 == dado1)
+		{
+			System.out.println("um");
+		}
+					
 	}
 	
-	void rolarDadoNum(Image dado)
+	void rolarDado1()
 	{
 		int dadoV = (int)ViewAPI.getRolaDado(false);
+		
 		
 		switch(dadoV)
 		{
 			case 1:
 				System.out.println(" e 1");
-				dado = dado1;
+				D1 = this.dado1;
 				break;
 			case 2:
 				System.out.println(" e 2");
-				dado = dado2;
+				D1 = this.dado2;
 				break;
 			case 3:
 				System.out.println(" e 3");
-				dado = dado3;
+				D1 = this.dado3;
 				break;
 			case 4:
 				System.out.println(" e 4");
-				dado = dado4;
+				D1 = this.dado4;
 				break;
 			case 5:
 				System.out.println(" e 5");
-				dado = dado5;		
+				D1 = this.dado5;		
 				break;
 			default:
 				System.out.println(" e 6");
-				dado = dado6;
+				D1 = this.dado6;
 				break;
 		}
 		
+		
+		
 	}
 	
+void rolarDado2()
+{
+	int dadoV = (int)ViewAPI.getRolaDado(false);
+	
+	
+	switch(dadoV)
+	{
+		case 1:
+			System.out.println(" e 1");
+			D2 = this.dado1;
+			break;
+		case 2:
+			System.out.println(" e 2");
+			D2 = this.dado2;
+			break;
+		case 3:
+			System.out.println(" e 3");
+			D2 = this.dado3;
+			break;
+		case 4:
+			System.out.println(" e 4");
+			D2 = this.dado4;
+			break;
+		case 5:
+			System.out.println(" e 5");
+			D2 = this.dado5;		
+			break;
+		default:
+			System.out.println(" e 6");
+			D2 = this.dado6;
+			break;
+	
+	
+	}
+	
+}
+
 	int[] getCoordenadas(int x, int y)
 	{
 		 int[] coordenadas;
@@ -544,11 +589,11 @@ public class PainelTabuleiro extends JPanel implements MouseListener
 				break;
 				
 			case 1:
-				this.rolarDadoNum(D1);
+				this.rolarDado1();
 				RP = true;
 				break;
 			case 2:
-				this.rolarDadoNum(D2);
+				this.rolarDado2();
 				RP = true;
 				break;
 				
