@@ -24,8 +24,9 @@ public class ModelAPI
 		Controller.inicio();
 	}
 	
-	public Object rolaDado(boolean dadoColorido, Dado dado)
+	public Object rolaDado(boolean dadoColorido)
 	{
+		Dado dado = new Dado();
 		dado.rolaDado();
 		if(dadoColorido) 
 		{
